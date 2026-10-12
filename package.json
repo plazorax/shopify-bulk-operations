@@ -1,0 +1,56 @@
+{
+  "name": "shopify-bulk-operations",
+  "version": "0.1.0",
+  "description": "Run Shopify Admin GraphQL bulk query operations end to end: start, poll, download and stream the JSONL result.",
+  "license": "MIT",
+  "author": "Oleksii Shaposhnikov",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plazorax/shopify-bulk-operations.git"
+  },
+  "keywords": [
+    "shopify",
+    "graphql",
+    "bulk-operations",
+    "jsonl",
+    "admin-api"
+  ],
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc -p tsconfig.build.json",
+    "prepare": "npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.0.0",
+    "eslint": "^10.12.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.0",
+    "vitest": "^3.2.4"
+  }
+}
