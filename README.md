@@ -1,4 +1,4 @@
-# shopify-bulk-operations
+# Shopify Bulk Operations
 
 ![CI](https://github.com/plazorax/shopify-bulk-operations/actions/workflows/ci.yml/badge.svg)
 
