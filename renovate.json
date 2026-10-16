@@ -1,0 +1,22 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Europe/Sofia",
+  "schedule": ["before 6am on monday"],
+  "dependencyDashboard": false,
+  "packageRules": [
+    {
+      "description": "Minor and patch updates: one weekly branch, merged without a PR once CI passes",
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "groupName": "non-major dependencies",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
+      "description": "Major updates stay as pull requests for the owner",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ],
+  "lockFileMaintenance": { "enabled": true, "automerge": true, "automergeType": "branch" }
+}
