@@ -64,7 +64,7 @@ const products = await nest(parseJsonl(createReadStream('result.jsonl')));
 
 ## Errors
 
-Every failure the library recognises is a `BulkOperationError` with a `code`:
+Every failure the library recognizes is a `BulkOperationError` with a `code`:
 
 ```ts
 import { BulkOperationError } from 'shopify-bulk-operations';

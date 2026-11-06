@@ -23,7 +23,7 @@ The library covers those steps as follows.
    `FAILED`, `CANCELED` and `EXPIRED` reject. Unknown future statuses keep polling until the
    timeout.
 4. **Stop.** The timeout and the caller's signal feed one internal `AbortController`, so a
-   request that hangs is cancelled too. On timeout or abort the library sends
+   request that hangs is canceled too. On timeout or abort the library sends
    `bulkOperationCancel` (best effort, 5 s limit) so the operation does not keep a concurrency slot.
 5. **Stream.** `streamJsonl` reads the response body chunk by chunk with a streaming
    `TextDecoder`, so lines and multi-byte characters split across chunks are reassembled.
@@ -67,7 +67,7 @@ Limitations in v0.1:
   recommends for production apps; polling is still useful for scripts and as a fallback.
 - No query validation beyond "not empty"; Shopify's own `userErrors` are passed through.
 - If the abort or timeout fires while the start mutation is in flight, the operation may have
-  been created without the library learning its ID, so it cannot be cancelled.
+  been created without the library learning its ID, so it cannot be canceled.
 - Tested with mocked responses only; not yet exercised against a live store.
 
 Possible next steps:
